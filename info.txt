@@ -1,0 +1,2 @@
+Info about the Expense_APP.
+A rough content regarding the Entities and attributes.
