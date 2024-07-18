@@ -1,3 +1,2 @@
 Info about the Expense_APP.
 A rough content regarding the Entities and attributes.
-Entitiy is the Expense_App itself
