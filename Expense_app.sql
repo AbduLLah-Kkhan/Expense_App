@@ -1,28 +1,11 @@
 create schema Expense_app;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Expense_app;
-=======
-use expense_app;
-
->>>>>>> 76d91cb (add database for expense_app)
-=======
-use Expense_app;
->>>>>>> 4aabe59 (modify Expense_App.sql)
 
 
 create table Users ( 
 	user_id int auto_increment	primary key,
-<<<<<<< HEAD
-<<<<<<< HEAD
     user_name varchar (255) not null
-=======
-    user_name varchar (255)
->>>>>>> 76d91cb (add database for expense_app)
-=======
-    user_name varchar (255) not null
->>>>>>> 4aabe59 (modify Expense_App.sql)
 );
 
 create table Expenses ( 
@@ -30,17 +13,8 @@ create table Expenses (
     user_id int,
     Item_name varchar (255),
     Amount decimal (10,2),
-<<<<<<< HEAD
-<<<<<<< HEAD
     date DATE,
     foreign key (user_id) references Users(user_id)
-=======
-    date DATE
->>>>>>> 76d91cb (add database for expense_app)
-=======
-    date DATE,
-    foreign key (user_id) references Users(user_id)
->>>>>>> 4aabe59 (modify Expense_App.sql)
 );
 
 create table Income (

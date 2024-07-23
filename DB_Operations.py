@@ -1,12 +1,6 @@
 import pymysql
 import os
 from dotenv import load_dotenv
-<<<<<<< HEAD
-
-load_dotenv()
-
-=======
->>>>>>> 58d3da4 (remove .env)
 
 load_dotenv()
 
