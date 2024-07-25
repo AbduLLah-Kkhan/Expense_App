@@ -1,25 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 .venv
-=======
 .env
->>>>>>> 1441192 (establish .gitignore file)
 .vscode
-=======
-.venv
-.vscode
-
-# Ignore temporary files created by WPS Office
-~$*
-.env
-<<<<<<< HEAD
-=======
-~$*
->>>>>>> 4bc97de (ignore the temp WPS files)
-=======
-~$*
-.env
->>>>>>> cde1918 (add .env file)
->>>>>>> 57a3383 (DB, .gitignore file, modifications.)
-=======
->>>>>>> ceefd62 (.env file and other changes)
