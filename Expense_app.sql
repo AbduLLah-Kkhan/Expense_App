@@ -13,18 +13,19 @@ create table Expenses (
     user_id int,
     Item_name varchar (255),
     Amount decimal (10,2),
-    date DATE,
+    date DATE not null,
     foreign key (user_id) references Users(user_id)
 );
 
-create table Income (
-	Income_id int auto_increment primary key,
-    user_id int,
-    Sender_name varchar (255),
-    Amount decimal (10,2),
-    date DATE not null,
-    foreign key user_id references Users(user_id)
+CREATE TABLE Income (
+    Income_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    Sender_name VARCHAR(255),
+    Amount DECIMAL(10,2),
+    date DATE NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
+
 
 create table Balance (
 	balance_id int auto_increment primary key,
