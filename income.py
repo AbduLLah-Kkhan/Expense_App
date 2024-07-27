@@ -1,7 +1,7 @@
 import pymysql
 import os
 from dotenv import load_dotenv
-from datetime import datetime
+from datetime import date
 
 
 load_dotenv()
@@ -18,14 +18,14 @@ def db_connection():
 
 
 
-def income_insertion(user_id,Sender_name,Amount,date=datetime(2024,7,20)):
+def income_insertion(Sender_name,Amount,date=date(2024,7,20)):
     try:
         connection = db_connection()
         cursor=connection.cursor()
 
-        sql_que="INSERT INTO Income (user_id,Sender_name,Amount,date) VALUES (%s,%s,%s,%s)"
+        sql_que="INSERT INTO Income (Sender_name,Amount,date) VALUES (%s,%s,%s)"
 
-        values=(user_id,Sender_name,Amount,date)
+        values=(Sender_name,Amount,date)
         cursor.execute(sql_que,values)
 
         connection.commit()
@@ -40,6 +40,33 @@ def income_insertion(user_id,Sender_name,Amount,date=datetime(2024,7,20)):
             cursor.close()
             connection.close()
 
-date=datetime(2024,7,20)
-income_insertion(1,"Abdullah,",2000.00,date)
+date=date(2024,7,20)
+income_insertion("Abdullah",2000.00,date)
+
+
+def fetch_income():
+
+    try:
+        connection= db_connection()
+        cursor=connection.cursor()
+
+        sql_que="select * from Income"
+        cursor.execute(sql_que)
+        result=cursor.fetchall()
+
+        return result 
+    
+    except pymysql.MySQLError as ERROR:
+        print(f"failed to fetch: {ERROR}")
+
+        return None
+    
+    finally:
+        if connection.open:
+            cursor.close()
+            connection.close()
+
+entry = fetch_income()
+print("Records fetched are:",entry)
+
 
