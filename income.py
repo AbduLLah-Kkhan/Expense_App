@@ -1,12 +1,13 @@
 import pymysql
 import os
 from dotenv import load_dotenv
+from datetime import datetime
 
 
 load_dotenv()
 
 def db_connection():
-    conn=mysql.connect(
+    conn=pymysql.connect(
         host=os.getenv('host_'),
         user=os.getenv('user_'),
         password=os.getenv('password_'),
@@ -17,12 +18,12 @@ def db_connection():
 
 
 
-def income_insertion(user_id,Sender_name,Amount,date):
+def income_insertion(user_id,Sender_name,Amount,date=datetime(2024,7,20)):
     try:
         connection = db_connection()
         cursor=connection.cursor()
 
-        sql_que="INSERT INTO Income (user_id,Sender_name,Amount,date) VALUES (%s,%s,%s,%a)"
+        sql_que="INSERT INTO Income (user_id,Sender_name,Amount,date) VALUES (%s,%s,%s,%s)"
 
         values=(user_id,Sender_name,Amount,date)
         cursor.execute(sql_que,values)
@@ -38,4 +39,7 @@ def income_insertion(user_id,Sender_name,Amount,date):
         if connection.open:
             cursor.close()
             connection.close()
+
+date=datetime(2024,7,20)
+income_insertion(1,"Abdullah,",2000.00,date)
 

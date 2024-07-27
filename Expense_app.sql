@@ -19,7 +19,7 @@ create table Expenses (
 
 create table Income (
 	Income_id int auto_increment primary key,
-    user_id int
+    user_id int,
     Sender_name varchar (255),
     Amount decimal (10,2),
     date DATE not null,
